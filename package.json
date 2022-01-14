@@ -2,8 +2,10 @@
   "name": "express-starter",
   "version": "1.0.0",
   "description": "ExpressJs starter template",
-  "main": "index.js",
+  "main": "dist/bin/server.js",
   "scripts": {
+    "serve": "NODE_CONFIG_DIR=src/config DEBUG=app:* nodemon -r dotenv/config -w src/ --exec babel-node -- src/bin/server.js",
+    "build": "babel src -d dist",
     "test": "jest",
     "prepare": "husky install"
   },
@@ -19,7 +21,9 @@
   },
   "homepage": "https://github.com/sarscode/express-starter#readme",
   "dependencies": {
+    "config": "^3.3.7",
     "cors": "^2.8.5",
+    "debug": "^4.3.3",
     "express": "^4.17.2",
     "helmet": "^5.0.1"
   },
